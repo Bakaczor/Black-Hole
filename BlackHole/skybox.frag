@@ -25,7 +25,7 @@ float calculateDelta(float b) {
         float f = 1.0 - w1 * w1 + coeff * w1 * w1 * w1;
         float df = -2.0 * w1 + 3.0 * coeff * w1 * w1;
         w1 -= f / df;
-        if (abs(f) < 1e-8) {break;}
+        if (abs(f) < 1e-8) { break; }
     }
     w1 = min(w1, 1.0);
     
