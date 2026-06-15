@@ -22,7 +22,7 @@ class Camera {
     float Yaw, Pitch;
     // camera options
     float PanSpeed = 0.1f;
-    float Dist = 10.f;
+    float Dist = 40.f;
     float MinDist = 1e-2f;
     float MaxDist = 1e2f;
 
