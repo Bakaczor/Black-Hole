@@ -30,15 +30,15 @@ float calculateDelta(float b) {
     w1 = min(w1, 1.0);
     
     // midpoint method
-    const int N = 500;
+    const int N = 250;
     float dw = w1 / float(N);
     float I = 0.0;
     
     for (int i = 0; i < N; i++) {
         float w = (float(i) + 0.5) * dw;
-        float f = 1.0 - w * w + coeff * w * w * w;
-        float denom = sqrt(max(1e-8, f));
-        I += dw / denom;
+        float numen = 1 + coeff * w * 0.5;
+        float denom = sqrt(max(1e-8, 1.0 - w * w + coeff * w));
+        I += dw * numen / denom;
     }
     
     return 2.0 * I - PI;
