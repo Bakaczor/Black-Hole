@@ -1,0 +1,4 @@
+.vs
+*.ini
+**/x64
+**/vcpkg_installed
