@@ -20,7 +20,7 @@ float calculateDelta(float b) {
     float coeff = 2.0 * mass / b;
     
     // Newton's method
-    float w1 = 1.0;
+    float w1 = 0.0;
     for (int i = 0; i < 10; i++) {
         float f = 1.0 - w1 * w1 + coeff * w1 * w1 * w1;
         float df = -2.0 * w1 + 3.0 * coeff * w1 * w1;
@@ -54,7 +54,7 @@ void main() {
     
     float b_crit = CRIT_B * mass;
     
-    if (b <= b_crit) {
+    if (b < b_crit) {
         // horizon line
         FragColor = vec4(0.0, 0.0, 0.0, 1.0);
         return;
@@ -73,10 +73,10 @@ void main() {
 
     // === dimming ===
     
-    float b_safe = b_crit * 2.0;  // cutoff for dimming
+    float b_safe = b_crit * 1.5;  // cutoff for dimming
     float t = smoothstep(b_crit, b_safe, b);
-    
-    float dimming; // [0,1]
+    float dimming = 1.0; // [0,1]
+
     if (delta > 2.0 * PI) {
         // the ray loops around the black hole
         float winds = floor(delta / (2.0 * PI));
