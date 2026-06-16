@@ -1,4 +1,4 @@
-﻿#version 460 core
+#version 410 core
 
 uniform samplerCube skybox;
 uniform vec3 cameraPos;
