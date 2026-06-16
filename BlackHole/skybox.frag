@@ -36,7 +36,7 @@ float calculateDelta(float b) {
     
     for (int i = 0; i < N; i++) {
         float w = (float(i) + 0.5) * dw;
-        float numen = 1 + coeff * w * 0.5;
+        float numen = 1.0 + coeff * w * 0.5;
         float denom = sqrt(max(1e-8, 1.0 - w * w + coeff * w));
         I += dw * numen / denom;
     }
